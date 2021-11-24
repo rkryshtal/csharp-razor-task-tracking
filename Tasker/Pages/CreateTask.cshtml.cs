@@ -27,6 +27,11 @@ namespace Tasker.Pages
             _context.Tasks.Add(NewTask);
             _context.SaveChanges();
 
+            if (!ModelState.IsValid)
+            { 
+                return Page();
+            }
+
             return RedirectToPage("Index");
         }
     }
